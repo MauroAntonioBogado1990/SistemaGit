@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+
 from .models import Persona
 from .forms import PersonaForm
 # Create your views here.
@@ -19,7 +20,7 @@ def nuevo_paciente(request, template_name='odontologia/paciente_form.html'):
         form = PersonaForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return redirect('personas')
+            return redirect('pacientes')
         else:
             print(form.errors)
     else:
